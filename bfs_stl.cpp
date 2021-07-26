@@ -6,6 +6,7 @@ using namespace std;
 #define M 1000000007
 vector<bool>visit;
 vector<vector<int>>adj;
+vector<int>ans;
 void addEdge(int u,int v)
 {
   adj[u].pb(v);
@@ -20,7 +21,8 @@ void bfs(int u)
   {
     int f = q.front();
     q.pop();
-    cout<<f<<" ";
+    // cout<<f<<" ";
+    ans.pb(f);
     for(int i=0;i<adj[f].size();i++)
     {
       if(!visit[adj[f][i]])
@@ -46,6 +48,10 @@ int main(void)
     {
       if(!visit[i])
         bfs(i);
+    }
+    for(int i=0;i<ans.size();i++)
+    {
+      cout<<ans[i]<<" ";
     }
     return 0;
 }
